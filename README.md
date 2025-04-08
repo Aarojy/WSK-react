@@ -1,3 +1,5 @@
+Open [Link](https://users.metropolia.fi/~aarojy/root/Web-sovelluskehitys_TX00EY23-3007/React/Routing/) to view it in the browser.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

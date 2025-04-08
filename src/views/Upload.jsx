@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Upload = (props) => {
+const Upload = () => {
   return <div>Upload</div>;
 };
-
-Upload.propTypes = {};
 
 export default Upload;

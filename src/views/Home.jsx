@@ -41,7 +41,6 @@ const mediaArray = [
 
 const Home = () => {
   const [selectedItem, setSelectedItem] = useState(null);
-  console.log(selectedItem);
 
   return (
     <>
