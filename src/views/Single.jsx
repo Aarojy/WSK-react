@@ -15,6 +15,7 @@ const Single = () => {
       ) : (
         <img src={item.filename} alt={item.title} />
       )}
+      <h2>Username: {item.username}</h2>
       <h3>Title: {item.title}</h3>
       <p>{item.description}</p>
     </>
