@@ -36,4 +36,29 @@ const useMedia = () => {
   return users;
 };
 
-export default useMedia;
+const useAuthentication = () => {
+  const postLogin = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    const loginResult = await fetchData(
+      import.meta.env.VITE_AUTH_API + '/auth/login',
+      fetchOptions,
+    );
+
+    window.localStorage.setItem('access_token', loginResult.token);
+
+    console.log('Login Result:', loginResult);
+    return loginResult;
+  };
+
+  return {
+    postLogin,
+  };
+};
+
+export default {useMedia, useAuthentication};
