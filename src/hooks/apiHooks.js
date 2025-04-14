@@ -32,7 +32,7 @@ const useMedia = () => {
     getMedia();
   }, []);
 
-  console.log('Users:', users);
+  //console.log('Users:', users);
   return users;
 };
 
@@ -61,4 +61,37 @@ const useAuthentication = () => {
   };
 };
 
-export default {useMedia, useAuthentication};
+const useUser = () => {
+  const postUser = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    return await fetchData(
+      import.meta.env.VITE_AUTH_API + '/users',
+      fetchOptions,
+    );
+  };
+
+  const getUserByToken = async (token) => {
+    const fetchOptions = {
+      headers: {
+        Authorization: 'Bearer: ' + token,
+      },
+    };
+
+    const userResult = await fetchData(
+      import.meta.env.VITE_AUTH_API + '/users/token',
+      fetchOptions,
+    );
+
+    return userResult;
+  };
+
+  return {getUserByToken, postUser};
+};
+
+export default {useMedia, useAuthentication, useUser};

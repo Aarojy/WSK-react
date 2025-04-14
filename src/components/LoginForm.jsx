@@ -1,6 +1,6 @@
 import useForm from '../hooks/formHooks';
 import apiHooks from '../hooks/apiHooks';
-import {Navigate, useNavigate} from 'react-router';
+import {useNavigate} from 'react-router';
 
 const LoginForm = () => {
   const {postLogin} = apiHooks.useAuthentication();
@@ -12,8 +12,7 @@ const LoginForm = () => {
   };
 
   const doLogin = async () => {
-    const result = await postLogin(inputs);
-    console.log('Login Result:', result);
+    await postLogin(inputs);
 
     navigate('/');
   };
