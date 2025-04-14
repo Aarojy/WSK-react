@@ -5,12 +5,18 @@ import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 
 const Login = () => {
-  const [buttonRegister, setButtonRegister] = useState(false);
+  const [formToggle, setFormToggle] = useState(false);
+
+  const clickHandler = () => {
+    setFormToggle(!formToggle);
+  };
 
   return (
     <>
-      <button onClick={() => setButtonRegister(!buttonRegister)}>Change</button>
-      {buttonRegister ? <LoginForm /> : <RegisterForm />}
+      {formToggle ? <LoginForm /> : <RegisterForm />}
+      <button onClick={clickHandler}>
+        {formToggle ? 'Register?' : 'Login?'}
+      </button>
     </>
   );
 };
