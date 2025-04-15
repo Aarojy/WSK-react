@@ -5,7 +5,7 @@ import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 
 const Login = () => {
-  const [formToggle, setFormToggle] = useState(false);
+  const [formToggle, setFormToggle] = useState(true);
 
   const clickHandler = () => {
     setFormToggle(!formToggle);

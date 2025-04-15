@@ -31,8 +31,6 @@ const useMedia = () => {
 
     getMedia();
   }, []);
-
-  //console.log('Users:', users);
   return users;
 };
 
@@ -50,7 +48,6 @@ export const useAuthentication = () => {
       fetchOptions,
     );
 
-    console.log('Login Result:', loginResult);
     return loginResult;
   };
 

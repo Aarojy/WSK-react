@@ -1,7 +1,15 @@
-import React from 'react';
+import {useContext, useEffect} from 'react';
 import {Link, Outlet} from 'react-router';
+import {UserContext} from '../contexts/UserContext';
 
 const Layout = () => {
+  const {handleAutoLogin} = useContext(UserContext);
+
+  useEffect(() => {
+    handleAutoLogin();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <nav>
