@@ -36,7 +36,7 @@ const useMedia = () => {
   return users;
 };
 
-const useAuthentication = () => {
+export const useAuthentication = () => {
   const postLogin = async (inputs) => {
     const fetchOptions = {
       method: 'POST',
@@ -50,8 +50,6 @@ const useAuthentication = () => {
       fetchOptions,
     );
 
-    window.localStorage.setItem('access_token', loginResult.token);
-
     console.log('Login Result:', loginResult);
     return loginResult;
   };
@@ -61,7 +59,7 @@ const useAuthentication = () => {
   };
 };
 
-const useUser = () => {
+export const useUser = () => {
   const postUser = async (inputs) => {
     const fetchOptions = {
       method: 'POST',
