@@ -89,4 +89,50 @@ export const useUser = () => {
   return {getUserByToken, postUser};
 };
 
-export default {useMedia, useAuthentication, useUser};
+export const useFile = () => {
+  const postFile = async (file, token) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer: ' + token,
+      },
+      mode: 'cors',
+      body: formData,
+    };
+
+    const uploadResult = await fetchData(
+      import.meta.env.VITE_UPLOAD_SERVER + '/upload',
+      fetchOptions,
+    );
+
+    return {uploadResult};
+  };
+
+  const postMedia = async (file, inputs, token) => {
+    const data = {...inputs, ...file};
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer: ' + token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    console.log(file);
+
+    const mediaResult = await fetchData(
+      import.meta.env.VITE_MEDIA_API + '/media',
+      fetchOptions,
+    );
+
+    return mediaResult;
+  };
+
+  return {postFile, postMedia};
+};
+
+export default {useMedia, useAuthentication, useUser, useFile};
