@@ -1,11 +1,12 @@
 // UserContext.jsx
 import {createContext, useState} from 'react';
 import {useAuthentication, useUser} from '../hooks/apiHooks';
-import {useNavigate} from 'react-router';
+import {useNavigate, useLocation} from 'react-router';
 
 const UserContext = createContext(null);
 
 const UserProvider = ({children}) => {
+  const location = useLocation();
   const [user, setUser] = useState(null);
   const {postLogin} = useAuthentication();
   const {getUserByToken} = useUser();
@@ -41,7 +42,7 @@ const UserProvider = ({children}) => {
       if (token) {
         const userData = await getUserByToken(token);
         setUser(userData);
-        navigate('/');
+        navigate(location.pathname);
       }
     } catch (e) {
       handleLogout();
