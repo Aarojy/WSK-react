@@ -1,3 +1,2 @@
-Routing [Link](https://users.metropolia.fi/~aarojy/root/Web-sovelluskehitys_TX00EY23-3007/React/Routing/)
+Custom Hooks [Link](https://users.metropolia.fi/~aarojy/root/Web-sovelluskehitys_TX00EY23-3007/React/Custom-hooks/)
 
-Hooks [Link](https://users.metropolia.fi/~aarojy/root/Web-sovelluskehitys_TX00EY23-3007/React/Hooks/)
