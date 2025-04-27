@@ -2,6 +2,7 @@ import {useState} from 'react';
 import useForm from '../hooks/formHooks';
 import {useFile} from '../hooks/apiHooks';
 import {useNavigate} from 'react-router';
+import TextInput from '../components/TextInput';
 
 // Upload.jsx
 const Upload = () => {
@@ -41,15 +42,13 @@ const Upload = () => {
     <>
       <h1>Upload</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            name="title"
-            type="text"
-            id="title"
-            onChange={handleInputChange}
-          />
-        </div>
+        <TextInput
+          label="Title"
+          name="title"
+          type="title"
+          id="title"
+          onChange={handleInputChange}
+        />
         <div>
           <label htmlFor="description">Description</label>
           <textarea

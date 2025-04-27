@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router';
 import apiHooks from '../hooks/apiHooks';
 import useForm from '../hooks/formHooks';
+import TextInput from './TextInput';
 
 const RegisterForm = () => {
   const {postUser} = apiHooks.useUser();
@@ -29,7 +30,7 @@ const RegisterForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="registeruser">Username</label>
-          <input
+          <TextInput
             name="username"
             type="text"
             id="registeruser"
@@ -39,7 +40,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <label htmlFor="registeremail">Email</label>
-          <input
+          <TextInput
             name="email"
             type="text"
             id="registeremail"
@@ -48,8 +49,8 @@ const RegisterForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="registerpassword">Password</label>
-          <input
+          <label htmlFor="registerpassword">Password</label>'
+          <TextInput
             name="password"
             type="password"
             id="registerpassword"

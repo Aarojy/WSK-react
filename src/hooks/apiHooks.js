@@ -47,7 +47,6 @@ export const useAuthentication = () => {
       import.meta.env.VITE_AUTH_API + '/auth/login',
       fetchOptions,
     );
-
     return loginResult;
   };
 

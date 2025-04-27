@@ -1,7 +1,10 @@
+import {useContext} from 'react';
 import PropTypes, {object} from 'prop-types';
 import {Link} from 'react-router';
+import {UserContext} from '../contexts/UserContext';
 
 const MediaRow = (props) => {
+  const {user} = useContext(UserContext);
   const {item} = props;
 
   return (
@@ -16,10 +19,41 @@ const MediaRow = (props) => {
       <td>{item.filesize}</td>
       <td>{item.media_type}</td>
       <td>
-        {/* <button onClick={handleClick}>View</button> */}
-        <Link to="/single" state={{item}}>
-          View
-        </Link>
+        <div>
+          <Link
+            to="/single"
+            className="hover:bg-green-400 hover:text-black"
+            state={{item}}
+          >
+            View
+          </Link>
+        </div>
+        {user && (
+          <>
+            <div>
+              <button
+                type="button"
+                className="hover:bg-sky-400 hover:text-black"
+                onClick={() => {
+                  console.log('edit button clicked');
+                }}
+              >
+                Edit
+              </button>
+            </div>
+            <div>
+              <button
+                type="button"
+                className="hover:bg-red-500"
+                onClick={() => {
+                  console.log('delete button clicked');
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          </>
+        )}
       </td>
     </tr>
   );
