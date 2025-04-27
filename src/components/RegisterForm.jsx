@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router';
 import apiHooks from '../hooks/apiHooks';
 import useForm from '../hooks/formHooks';
+import TextInput from './TextInput';
 
 const RegisterForm = () => {
   const {postUser} = apiHooks.useUser();
@@ -25,11 +26,11 @@ const RegisterForm = () => {
 
   return (
     <>
-      <h1>Register</h1>
+      <h1 className="m-2 ml-0 text-2xl">Register</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="registeruser">Username</label>
-          <input
+          <TextInput
             name="username"
             type="text"
             id="registeruser"
@@ -39,7 +40,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <label htmlFor="registeremail">Email</label>
-          <input
+          <TextInput
             name="email"
             type="text"
             id="registeremail"
@@ -48,8 +49,8 @@ const RegisterForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="registerpassword">Password</label>
-          <input
+          <label htmlFor="registerpassword">Password</label>'
+          <TextInput
             name="password"
             type="password"
             id="registerpassword"
@@ -57,7 +58,12 @@ const RegisterForm = () => {
             autoComplete="current-password"
           />
         </div>
-        <button type="submit">Register</button>
+        <button
+          className="m-1 bg-purple-900 p-1 hover:bg-purple-200 hover:text-black"
+          type="submit"
+        >
+          Register
+        </button>
       </form>
     </>
   );

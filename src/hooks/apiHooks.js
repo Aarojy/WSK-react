@@ -1,5 +1,7 @@
 import {fetchData} from '../utils/fetchData';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
+
+const url = import.meta.env.VITE_MEDIA_API;
 
 const useMedia = () => {
   const [users, setUsers] = useState([]);
@@ -32,6 +34,31 @@ const useMedia = () => {
     getMedia();
   }, []);
   return users;
+};
+
+export const deleteMedia = async (id, token) => {
+  const fetchOptions = {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer: ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return await fetchData(`${url}/media/${id}`, fetchOptions);
+};
+
+export const modifyMedia = async (inputs, token) => {
+  const fetchOptions = {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer: ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(inputs),
+  };
+
+  return await fetchData(`${url}/media/${inputs.id}`, fetchOptions);
 };
 
 export const useAuthentication = () => {
@@ -135,4 +162,11 @@ export const useFile = () => {
   return {postFile, postMedia};
 };
 
-export default {useMedia, useAuthentication, useUser, useFile};
+export default {
+  useMedia,
+  useAuthentication,
+  useUser,
+  useFile,
+  deleteMedia,
+  modifyMedia,
+};

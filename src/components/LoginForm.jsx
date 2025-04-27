@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import useForm from '../hooks/formHooks';
 import {UserContext} from '../contexts/UserContext';
+import TextInput from './TextInput';
 
 const LoginForm = () => {
   const {handleLogin} = useContext(UserContext);
@@ -25,11 +26,11 @@ const LoginForm = () => {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1 className="m-2 ml-0 text-2xl">Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="loginuser">Username</label>
-          <input
+          <TextInput
             name="username"
             type="text"
             id="loginuser"
@@ -39,7 +40,7 @@ const LoginForm = () => {
         </div>
         <div>
           <label htmlFor="loginpassword">Password</label>
-          <input
+          <TextInput
             name="password"
             type="password"
             id="loginpassword"
@@ -47,7 +48,12 @@ const LoginForm = () => {
             autoComplete="current-password"
           />
         </div>
-        <button type="submit">Login</button>
+        <button
+          className="m-1 bg-purple-900 p-1 hover:bg-purple-200 hover:text-black"
+          type="submit"
+        >
+          Login
+        </button>
       </form>
     </>
   );

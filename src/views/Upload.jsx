@@ -2,6 +2,7 @@ import {useState} from 'react';
 import useForm from '../hooks/formHooks';
 import {useFile} from '../hooks/apiHooks';
 import {useNavigate} from 'react-router';
+import TextInput from '../components/TextInput';
 
 // Upload.jsx
 const Upload = () => {
@@ -39,29 +40,29 @@ const Upload = () => {
 
   return (
     <>
-      <h1>Upload</h1>
+      <h1 className="m-2 ml-0 text-2xl">Upload</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            name="title"
-            type="text"
-            id="title"
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
+        <TextInput
+          label="Title"
+          name="title"
+          type="title"
+          id="title"
+          onChange={handleInputChange}
+        />
+        <div className="flex flex-col">
           <label htmlFor="description">Description</label>
           <textarea
+            className="rounded-md border-2 border-gray-300 p-2"
             name="description"
             rows={5}
             id="description"
             onChange={handleInputChange}
           ></textarea>
         </div>
-        <div>
+        <div className="flex flex-col">
           <label htmlFor="file">File</label>
           <input
+            className="m-1 ml-0 w-70 bg-purple-900 p-1 hover:bg-purple-200 hover:text-black"
             name="file"
             type="file"
             id="file"
@@ -79,6 +80,7 @@ const Upload = () => {
           width="200"
         />
         <button
+          className="m-1 ml-0 bg-purple-900 p-1 hover:bg-purple-200 hover:text-black"
           type="submit"
           disabled={file && inputs?.title.length > 3 ? false : true}
         >
