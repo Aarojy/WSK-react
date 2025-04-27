@@ -2,10 +2,13 @@ import {useContext} from 'react';
 import PropTypes, {object} from 'prop-types';
 import {Link} from 'react-router';
 import {UserContext} from '../contexts/UserContext';
+import {deleteMedia} from '../hooks/apiHooks';
+import {useNavigate} from 'react-router'; // Import useNavigate
 
 const MediaRow = (props) => {
   const {user} = useContext(UserContext);
   const {item} = props;
+  const navigate = useNavigate(); // Initialize useNavigate
 
   return (
     <tr key={item.media_id}>
@@ -46,7 +49,11 @@ const MediaRow = (props) => {
                 type="button"
                 className="hover:bg-red-500"
                 onClick={() => {
-                  console.log('delete button clicked');
+                  deleteMedia(
+                    item.media_id,
+                    localStorage.getItem('access_token'),
+                  );
+                  navigate(0);
                 }}
               >
                 Delete
