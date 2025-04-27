@@ -3,12 +3,12 @@ import PropTypes, {object} from 'prop-types';
 import {Link} from 'react-router';
 import {UserContext} from '../contexts/UserContext';
 import {deleteMedia} from '../hooks/apiHooks';
-import {useNavigate} from 'react-router'; // Import useNavigate
+import {useNavigate} from 'react-router';
 
 const MediaRow = (props) => {
   const {user} = useContext(UserContext);
   const {item} = props;
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   return (
     <tr key={item.media_id}>
