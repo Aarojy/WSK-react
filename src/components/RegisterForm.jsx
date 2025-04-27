@@ -26,7 +26,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <h1>Register</h1>
+      <h1 className="m-2 ml-0 text-2xl">Register</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="registeruser">Username</label>
@@ -58,7 +58,12 @@ const RegisterForm = () => {
             autoComplete="current-password"
           />
         </div>
-        <button type="submit">Register</button>
+        <button
+          className="m-1 bg-purple-900 p-1 hover:bg-purple-200 hover:text-black"
+          type="submit"
+        >
+          Register
+        </button>
       </form>
     </>
   );

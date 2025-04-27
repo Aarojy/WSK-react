@@ -14,7 +14,10 @@ const Login = () => {
   return (
     <>
       {formToggle ? <LoginForm /> : <RegisterForm />}
-      <button onClick={clickHandler}>
+      <button
+        className="m-1 bg-purple-900 p-1 hover:bg-purple-200 hover:text-black"
+        onClick={clickHandler}
+      >
         {formToggle ? 'Register?' : 'Login?'}
       </button>
     </>
